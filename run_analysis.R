@@ -90,7 +90,7 @@ xtestFileTxtPath <- "UCI HAR Dataset/test/X_test.txt"
 xTest <- read.table(unz(zipFilePath, xtestFileTxtPath), col.names = features$features)
 
 # Extracts only the measurements on the mean and standard deviation for each measurement.
-xTest <- select(xTest, matches("mean\\.\\.|std\\.\\.", ignore.case = FALSE))
+xTest <- dplyr::select(xTest, matches("mean\\.\\.|std\\.\\.", ignore.case = FALSE))
 
 # Adds the features variables in "observationsTest".
 observationsTest <- cbind(observationsTest, xTest)
@@ -103,7 +103,7 @@ xtrainFileTxtPath <- "UCI HAR Dataset/train/X_train.txt"
 xTrain <- read.table(unz(zipFilePath, xtrainFileTxtPath), col.names = features$features)
 
 # Extracts only the measurements on the mean and standard deviation for each measurement.
-xTrain <- select(xTrain, matches("mean\\.\\.|std\\.\\.", ignore.case = FALSE))
+xTrain <- dplyr::select(xTrain, matches("mean\\.\\.|std\\.\\.", ignore.case = FALSE))
 
 # Adds the features variables in "observationsTrain".
 observationsTrain <- cbind(observationsTrain, xTrain)
